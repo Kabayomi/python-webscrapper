@@ -14,9 +14,16 @@ def transform(soup):
 	divs = soup.find_all("div",class_= "jobsearch-SerpJobCard")
 	for element in divs:
 		title = element.find("a").text.strip()
-		print(title)
+		company = element.find("span", class_="company").text.strip()
+		try:
+			location = element.find("span", class_="location").text.strip()
+			salary = element.find("span", class_="salaryText").text.strip()
+		except:
+			location = ""
+			salary = ""
+		summary = element.find("div", {"class": "summary"}).text.strip()
+		print(summary)
 	return 
-
 
 
 # Load  
