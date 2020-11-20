@@ -21,7 +21,7 @@ def transform(soup):
 		except:
 			location = ""
 			salary = ""
-		summary = element.find("div", {"class": "summary"}).text.strip()
+		summary = element.find("div", {"class": "summary"}).text.strip().replace('\n', "")
 		
 		job = {
 			"title": title,
