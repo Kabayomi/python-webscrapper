@@ -1,5 +1,6 @@
 import requests
 from bs4 import BeautifulSoup
+import pandas as pd
 
 # Extract
 def extract(page):
@@ -35,6 +36,14 @@ def transform(soup):
 
 # Load
 joblist = []
-c = extract(0)
-transform(c)
-print(joblist)
+
+for i in range(0,40,10):
+	print(f"Getting page, {i}")
+	c = extract(0)
+	transform(c)
+	print(joblist)
+
+# To pandas
+df = pd.DataFrame(joblist)
+print(df.head())
+df.to_csv('job.csv')
