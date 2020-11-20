@@ -22,12 +22,19 @@ def transform(soup):
 			location = ""
 			salary = ""
 		summary = element.find("div", {"class": "summary"}).text.strip()
-		print(summary)
+		
+		job = {
+			"title": title,
+			"company": company,
+			"location": location,
+			"salary": salary,
+			"summary": summary
+		}
+		joblist.append(job)
 	return 
 
-
-# Load  
-
+# Load
+joblist = []
 c = extract(0)
-#print(extract(0))
-print(transform(c))
+transform(c)
+print(joblist)
