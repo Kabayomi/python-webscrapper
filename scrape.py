@@ -44,6 +44,7 @@ for i in range(0,40,10):
 	print(joblist)
 
 # To pandas
+
 df = pd.DataFrame(joblist)
 print(df.head())
 df.to_csv('job.csv')
